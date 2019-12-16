@@ -1,0 +1,18 @@
+#!/bin/sh
+
+THIS_SCRIPT=$0
+
+HOSTAPD_DEFAULT_CFG=/etc/default/hostapd.conf
+HOSTAPD_CFG=/etc/hostapd.conf
+
+#take last two bytes of MAC address to create unique AP name
+WLAN0_ID=$(ifconfig wlan0 | grep 'HWaddr' |tr -s ' ' | cut -d ' ' -f5 | cut -d: -f5-6 | sed 's/://')
+
+#change default conf file
+sed -i "s/^\(ssid=\).*/\1VisionSOM6ULL-AP-${WLAN0_ID}/" $HOSTAPD_DEFAULT_CFG
+
+#update config on startup if invoked from init
+[ ! -z $1 ] && [ $1 == "start" ] && cp $HOSTAPD_DEFAULT_CFG $HOSTAPD_CFG
+
+#delete this script
+shred -u $THIS_SCRIPT

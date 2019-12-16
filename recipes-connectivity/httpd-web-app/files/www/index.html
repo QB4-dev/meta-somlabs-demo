@@ -1,0 +1,68 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="img/favicon.ico">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" >
+  <link rel="stylesheet" href="fonts/Font-Awesome/css/font-awesome.min.css">
+  <!-- JS -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!--Navigation bar-->
+<div id="nav-placeholder"></div>
+<script>$("#nav-placeholder").load("html/navbar.html"); </script>
+<!--end of Navigation bar-->
+<br>
+
+<div class="container float-left col col-md-8 col-lg-6   " style="padding-left: 0px;">
+
+    <div class="card border-light">
+	    <div class="card-header p-1 bg-success text-white">Firmware info</div>
+        <div class="card-body col" id="fw_info">
+            <table class="table table-borderless table-responsive-sm">
+            <tr><td>OS</td>    <td id="fw_ver"></td></tr>
+            <tr><td>kernel</td><td id="kernel"></td></tr>
+            </table>
+	    </div>
+    </div>
+
+
+    <div class="card border-light">
+	    <div class="card-header p-1 bg-success text-white">Hardware info</div>
+        <div class="card-body col" id="hw_info">
+                <table class="table table-borderless table-responsive-sm ">
+                  <tr><td>eth0 (wired) MAC address</td><td id="eth0_mac"></td></tr>
+                  <tr><td>wlan0 (wireless) MAC address</td><td id="wlan0_mac"></td></tr>
+                </table>
+	    </div>
+    </div>
+</div>
+
+
+</div>
+
+
+<script>
+
+
+window.onload = function() {
+	$.get("/cgi-bin/dev-info.sh", function(js,status){
+		if(status == "success"){
+			$('#fw_ver').html(js.fw_ver);
+			$('#kernel').html(js.kernel+' '+js.kernel_ver);
+			$('#eth0_mac').html(js.eth0_mac);
+                        $('#wlan0_mac').html(js.wlan0_mac);
+		}
+	});
+}
+
+</script>
+</body>
+</html>
