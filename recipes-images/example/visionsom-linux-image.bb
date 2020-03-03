@@ -67,6 +67,7 @@ FONTS = " \
 "
  
 IMAGE_INSTALL += " \
+    ${KERNEL_EXTRA_INSTALL} \
     ${SYSTEM_TOOLS_INSTALL} \
     ${UTILITIES_INSTALL} \
     ${GSTREAMER_SUPPORT} \
@@ -75,8 +76,6 @@ IMAGE_INSTALL += " \
     ${FONTS} \
     ${QT_LIBS} \
 "
-
-#${KERNEL_EXTRA_INSTALL}  - PXP kernel module not compatible yet
 
 #always add cmake to sdk
 TOOLCHAIN_HOST_TASK_append = " nativesdk-cmake"
