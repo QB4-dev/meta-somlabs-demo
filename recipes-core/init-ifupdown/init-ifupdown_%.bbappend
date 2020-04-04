@@ -14,8 +14,6 @@ S = "${WORKDIR}"
 do_install_append() { 
     install -d 0755 ${D}${sysconfdir}
     install -d 0755 ${D}${sysconfdir}/network
-    install -d 0755 ${D}${sysconfdir}/default/network
-    install -m 644  ${WORKDIR}/interfaces  ${D}${sysconfdir}/network/interfaces
-    install -m 644  ${WORKDIR}/interfaces  ${D}${sysconfdir}/default/network/interfaces
+    install -m 644  ${WORKDIR}/interfaces ${D}${sysconfdir}/network/interfaces
 }
 

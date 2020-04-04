@@ -18,10 +18,11 @@ SYSTEM_TOOLS_INSTALL = " \
     evtest \
     fb-test \
     mtd-utils \
+    cronie \
 " 
 
 NETWORK_APP = " \
-    init-ifupifdown \
+    init-ifupdown \
     dropbear \
     openssh-sftp-server \
     httpd-web-app \
@@ -44,7 +45,7 @@ UTILITIES_INSTALL = " \
     visionsom-ui \
 "
 
-WIFI_SUPPORT = " \
+WIFI_AP_SUPPORT = " \
     hostapd \
     busybox-udhcpd \
 "
@@ -72,7 +73,7 @@ IMAGE_INSTALL += " \
     ${UTILITIES_INSTALL} \
     ${GSTREAMER_SUPPORT} \
     ${NETWORK_APP}  \
-    ${WIFI_SUPPORT}  \
+    ${WIFI_AP_SUPPORT}  \
     ${FONTS} \
     ${QT_LIBS} \
 "
