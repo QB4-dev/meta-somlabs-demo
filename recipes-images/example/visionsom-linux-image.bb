@@ -9,8 +9,6 @@ IMAGE_LINGUAS = "pl-pl"
 
 inherit core-image 
 
-KERNEL_EXTRA_INSTALL = "kernel-module-pxp-dma"
-
 SYSTEM_TOOLS_INSTALL = " \
     os-release \
     tzdata \
@@ -68,7 +66,6 @@ FONTS = " \
 "
  
 IMAGE_INSTALL += " \
-    ${KERNEL_EXTRA_INSTALL} \
     ${SYSTEM_TOOLS_INSTALL} \
     ${UTILITIES_INSTALL} \
     ${GSTREAMER_SUPPORT} \
