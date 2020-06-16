@@ -33,6 +33,7 @@ GSTREAMER_SUPPORT = " \
     gstreamer1.0-plugins-good \
     gstreamer1.0-plugins-bad  \
     gstreamer1.0-plugins-imx  \
+    gstreamer1.0-plugins-ugly \
 "
 
 UTILITIES_INSTALL = " \

@@ -1,0 +1,1 @@
+PACKAGECONFIG_mx6 = "x264"
